@@ -9,15 +9,21 @@ function EffectTutorial() {
     axios
       .get("https://jsonplaceholder.typicode.com/comments")
       .then((response) => {
-        setData(response.data[0].email);
+        setData(response.data[0]);
         console.log("API WAS CALLED");
+        console.log(data);
       });
   }, []);
 
   return (
     <div>
       Hello World
-      <h1>{data}</h1>
+      <p>
+        <div>{data.id}</div>
+        <div>{data.name}</div>
+        <div>{data.email}</div>
+        <div>{data.body}</div>
+      </p>
       <h1>{count}</h1>
       <button
         onClick={() => {
